@@ -1,10 +1,11 @@
 import React from "react";
 import { Form, Input, Button, Typography, message } from "antd";
 import { SaveOutlined } from "@ant-design/icons";
+import SingleFileUpload from './SingleFileUpload';
 
 const { Title } = Typography;
 
-const SubjectBodyForm = ({ form, handleSubmit }) => {
+const SubjectBodyForm = ({ form, handleSubmit,setFileList,fileList,isScheduling }) => {
 
 
 
@@ -38,6 +39,12 @@ const SubjectBodyForm = ({ form, handleSubmit }) => {
                         style={{ resize: "none" }}
                     />
                 </Form.Item>
+                <SingleFileUpload
+                    actionUrl="https://your-upload-endpoint.com/upload"
+                    fileList={fileList}
+                    setFileList={setFileList}
+                    onFileUpload={(file) => console.log('File uploaded:', file)}
+                />
             </Form>
         </div>
     );

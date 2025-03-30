@@ -1,10 +1,12 @@
 import { Modal } from 'antd'
 import React from 'react'
 
-const EmailMessage = ({ isModalOpen, handleCancel, handleOk, component, handleSubmit }) => {
+const EmailMessage = ({ isModalOpen, handleCancel, handleOk, component, handleSubmit, isScheduling }) => {
     return (
         <div>
-            <Modal open={isModalOpen} onOk={handleSubmit} onCancel={handleCancel}>
+            <Modal
+                confirmLoading={isScheduling}
+                open={isModalOpen} onOk={handleSubmit} onCancel={handleCancel}>
                 {component}
             </Modal>
         </div>
